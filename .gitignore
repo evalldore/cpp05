@@ -1,6 +1,6 @@
 *.DS_Store
 */bin/
-.vs_code
+.vscode
 bureacrat
 a.out
 *.o
