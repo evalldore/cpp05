@@ -1,0 +1,6 @@
+*.DS_Store
+*/bin/
+.vs_code
+bureacrat
+a.out
+*.o
