@@ -3,16 +3,17 @@
 
 //Constructors/Destructors
 
-Bureaucrat::Bureaucrat(void): _name("None"), _grade(0) {
+Bureaucrat::Bureaucrat(void): _name("None"), _grade(150) {
 	std::cout << "Bureaucrat default constructor!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, uint32_t grade): _name(name), _grade(grade) {
-	std::cout << "Bureaucrat constructed with name " << name << " and grade " << grade << std::endl;
+Bureaucrat::Bureaucrat(const std::string name, unsigned int grade): _name(name) {
+	_setGrade(grade);
+	std::cout << "Bureaucrat constructed with name " << name << " and grade " << _grade << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void) {
-	std::cout << "Bureaucraft default destructor!" << std::endl;
+	std::cout << "Bureaucrat default destructor!" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) {
@@ -26,14 +27,38 @@ const std::string Bureaucrat::getName(void) const {
 	return (_name);
 }
 
-uint32_t Bureaucrat::getGrade(void) const {
+unsigned int Bureaucrat::getGrade(void) const {
 	return (_grade);
+}
+
+void Bureaucrat::addGrade(unsigned int amount) {
+	_setGrade(_grade + amount);
+}
+
+void Bureaucrat::subGrad(unsigned int amount) {
+	_setGrade(_grade - amount);
+}
+
+bool Bureaucrat::_setGrade(unsigned int grade) {
+	try {
+		if (grade > 150)
+			throw GradeTooHighException();
+		if (grade < 1)
+			throw GradeTooLowException();
+	} catch (std::exception& e) {
+		std::cout << e.what() << ' ' << grade << std::endl;
+		return (false);
+	
+	}
+	_grade = grade;
+	return (true);
 }
 
 //Operators
 
 const Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	if (this == &other) return *this;
+	_grade = other.getGrade();
 	std::cout << "Bureaucrat copy operator!" << std::endl;
 	return (*this);
 }
@@ -42,4 +67,14 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& other)
 {
 	out << other.getName() << ',' << " bureaucrat grade " << other.getGrade();
 	return out;
+}
+
+//exceptions
+
+const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
+	return "Grade too high";
+}
+
+const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
+	return "Grade too low";
 }

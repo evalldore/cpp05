@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	Bureaucrat henry = Bureaucrat("Henry", 10);
+	Bureaucrat henry = Bureaucrat("Henry", 0);
 
 	std::cout << henry << std::endl;
 }
