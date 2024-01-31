@@ -3,7 +3,7 @@
 
 //Constructors/Destructors
 
-Bureaucrat::Bureaucrat(void): _name("None"), _grade(150) {
+Bureaucrat::Bureaucrat(void): _name("No name"), _grade(150) {
 	std::cout << "Bureaucrat default constructor!" << std::endl;
 }
 
@@ -32,26 +32,20 @@ unsigned int Bureaucrat::getGrade(void) const {
 }
 
 void Bureaucrat::addGrade(unsigned int amount) {
-	_setGrade(_grade + amount);
-}
-
-void Bureaucrat::subGrad(unsigned int amount) {
 	_setGrade(_grade - amount);
 }
 
-bool Bureaucrat::_setGrade(unsigned int grade) {
-	try {
-		if (grade > 150)
-			throw GradeTooHighException();
-		if (grade < 1)
-			throw GradeTooLowException();
-	} catch (std::exception& e) {
-		std::cout << e.what() << ' ' << grade << std::endl;
-		return (false);
-	
-	}
-	_grade = grade;
-	return (true);
+void Bureaucrat::subGrad(unsigned int amount) {
+	_setGrade(_grade + amount);
+}
+
+void Bureaucrat::_setGrade(unsigned int grade) {
+	if (grade > 150)
+		throw GradeTooHighException();
+	else if (grade < 1)
+		throw GradeTooLowException();
+	else
+		_grade = grade;
 }
 
 //Operators

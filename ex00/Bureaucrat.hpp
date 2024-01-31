@@ -26,7 +26,7 @@ class Bureaucrat {
 		//operators
 		const Bureaucrat& operator=(const Bureaucrat& other);
 	private :
-		bool				_setGrade(unsigned int grade);
+		void				_setGrade(unsigned int grade);
 		const std::string	_name;
 		unsigned int		_grade;
 };
