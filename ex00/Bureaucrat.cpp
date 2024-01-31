@@ -13,7 +13,7 @@ Bureaucrat::Bureaucrat(const std::string name, unsigned int grade): _name(name) 
 }
 
 Bureaucrat::~Bureaucrat(void) {
-	std::cout << "Bureaucrat default destructor!" << std::endl;
+	std::cout << "Bureaucrat default destructor for " << _name << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) {
@@ -31,19 +31,19 @@ unsigned int Bureaucrat::getGrade(void) const {
 	return (_grade);
 }
 
-void Bureaucrat::addGrade(unsigned int amount) {
+void Bureaucrat::addGrade(unsigned int amount = 1) {
 	_setGrade(_grade - amount);
 }
 
-void Bureaucrat::subGrad(unsigned int amount) {
+void Bureaucrat::subGrade(unsigned int amount = 1) {
 	_setGrade(_grade + amount);
 }
 
 void Bureaucrat::_setGrade(unsigned int grade) {
 	if (grade > 150)
-		throw GradeTooHighException();
-	else if (grade < 1)
 		throw GradeTooLowException();
+	else if (grade < 1)
+		throw GradeTooHighException();
 	else
 		_grade = grade;
 }

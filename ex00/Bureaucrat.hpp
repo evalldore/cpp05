@@ -22,7 +22,7 @@ class Bureaucrat {
 		const std::string	getName(void) const;
 		unsigned int		getGrade(void) const;
 		void				addGrade(unsigned int amount);
-		void				subGrad(unsigned int amount);
+		void				subGrade(unsigned int amount);
 		//operators
 		const Bureaucrat& operator=(const Bureaucrat& other);
 	private :
