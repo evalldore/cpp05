@@ -16,10 +16,15 @@
 
 static void errors (void) {
 	std::cout << RED << "Errors testing" << RESET << std::endl;
+
+	Bureaucrat henry = Bureaucrat("Henry", 150);
+	ShrubberyCreationForm Shrub = ShrubberyCreationForm();
+
+	henry.signForm(Shrub);
+	henry.executeForm(Shrub);
 }
 
-static void valid(void)
-{
+static void valid(void) {
 	std::cout << BLU << "Valid testing" << RESET << std::endl;
 
 	Bureaucrat henry = Bureaucrat("Henry", 137);
@@ -29,8 +34,7 @@ static void valid(void)
 	henry.executeForm(Shrub);
 }
 
-int main(void)
-{
+int main(void) {
 	errors();
 	valid();
 }

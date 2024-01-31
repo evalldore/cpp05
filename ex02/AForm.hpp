@@ -22,7 +22,7 @@ class AForm {
 		};
 		//constructors/destructors
 		AForm(void);
-		AForm(const std::string name, const unsigned int signGrade, const unsigned int execGrade);
+		AForm(const std::string name, const std::string target, const unsigned int signGrade, const unsigned int execGrade);
 		AForm(const AForm& other);
 		virtual ~AForm(void) = 0;
 		//methods
@@ -30,6 +30,7 @@ class AForm {
 		void					beSigned(const Bureaucrat& bureaucrat);
 		bool					isSigned(void) const;
 		const std::string		getName() const;
+		const std::string		getTarget() const;
 		unsigned int			getSignGrade() const;
 		unsigned int			getExecGrade() const;
 		const AForm&			operator=(const AForm& other);
@@ -37,6 +38,7 @@ class AForm {
 	private :
 		bool					_signed;
 		const std::string		_name;
+		const std::string		_target;
 		const unsigned int		_signGrade;
 		const unsigned int		_execGrade;
 };

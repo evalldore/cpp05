@@ -20,17 +20,17 @@ static unsigned int validateGrade(unsigned int grade)
 
 //constructors/destructors
 
-AForm::AForm(void): _name("No Name"), _signGrade(150), _execGrade(150) {
+AForm::AForm(void): _name("No Name"), _target("No Target"), _signGrade(150), _execGrade(150) {
 	_signed = false;
 	std::cout << "Default Form constructor" << std::endl;
 }
 
-AForm::AForm(const std::string name, const unsigned int signGrade = 150, const unsigned int execGrade = 150): _name(name), _signGrade(validateGrade(signGrade)), _execGrade(validateGrade(execGrade)) {
+AForm::AForm(const std::string name, const std::string target, const unsigned int signGrade = 150, const unsigned int execGrade = 150): _name(name), _target(target), _signGrade(validateGrade(signGrade)), _execGrade(validateGrade(execGrade)) {
 	_signed = false;
 	std::cout << *this << std::endl;
 }
 
-AForm::AForm(const AForm& other): _name(other._name), _signGrade(other._signGrade), _execGrade(other._execGrade) {
+AForm::AForm(const AForm& other): _name(other._name), _target(other._target), _signGrade(other._signGrade), _execGrade(other._execGrade) {
 	_signed = false;
 	std::cout << "Form copy constructor" << std::endl;
 }
@@ -59,6 +59,10 @@ bool AForm::isSigned(void) const {
 
 const std::string AForm::getName() const {
 	return _name;
+}
+
+const std::string AForm::getTarget() const {
+	return _target;
 }
 
 unsigned int AForm::getSignGrade() const {
@@ -100,8 +104,8 @@ const char* AForm::SignedException::what(void) const throw() {
 
 //operators
 
-std::ostream& operator<<(std::ostream& out, const AForm& AForm)
+std::ostream& operator<<(std::ostream& out, const AForm& form)
 {
-	out << "Form named " << AForm.getName() << " requiring to sign a grade of " << AForm.getSignGrade() << " and a grade to execute it of " << AForm.getExecGrade();
+	out << "Form named " << form.getName() << " targetting " << form.getTarget() << " requiring to sign a grade of " << form.getSignGrade() << " and a grade to execute it of " << form.getExecGrade();
 	return out;
 }
