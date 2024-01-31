@@ -6,4 +6,5 @@ class ShrubberyCreationForm : public AForm {
 
 	ShrubberyCreationForm(void);
 	~ShrubberyCreationForm(void);
+	bool execute(const Bureaucrat& bureaucrat) const;
 };

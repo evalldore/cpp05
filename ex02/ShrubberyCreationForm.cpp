@@ -8,3 +8,10 @@ ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery", 145, 137
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {
 	std::cout << "Shubbery creation form default destructor!" << std::endl;
 }
+
+bool ShrubberyCreationForm::execute(const Bureaucrat& bureaucrat) const {
+	if (!AForm::execute(bureaucrat))
+		return false;
+	std::cout << "epic shrub" << std::endl;
+	return true;
+}

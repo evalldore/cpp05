@@ -24,9 +24,9 @@ class AForm {
 		AForm(void);
 		AForm(const std::string name, const unsigned int signGrade, const unsigned int execGrade);
 		AForm(const AForm& other);
-		~AForm(void);
+		virtual ~AForm(void) = 0;
 		//methods
-		void					execute(const Bureaucrat& bureaucrat) const;
+		virtual bool			execute(const Bureaucrat& bureaucrat) const;
 		void					beSigned(const Bureaucrat& bureaucrat);
 		bool					isSigned(void) const;
 		const std::string		getName() const;
@@ -35,10 +35,10 @@ class AForm {
 		const AForm&			operator=(const AForm& other);
 
 	private :
-		bool				_signed;
-		const std::string	_name;
-		const unsigned int	_signGrade;
-		const unsigned int	_execGrade;
+		bool					_signed;
+		const std::string		_name;
+		const unsigned int		_signGrade;
+		const unsigned int		_execGrade;
 };
 
 std::ostream& operator<<(std::ostream& out, const AForm& other);

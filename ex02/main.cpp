@@ -1,6 +1,7 @@
 #include <iostream>
 #include <exception>
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 #define RESET "\e[0m"
 
@@ -20,6 +21,12 @@ static void errors (void) {
 static void valid(void)
 {
 	std::cout << BLU << "Valid testing" << RESET << std::endl;
+
+	Bureaucrat henry = Bureaucrat("Henry", 137);
+	ShrubberyCreationForm Shrub = ShrubberyCreationForm();
+
+	henry.signForm(Shrub);
+	henry.executeForm(Shrub);
 }
 
 int main(void)

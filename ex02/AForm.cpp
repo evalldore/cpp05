@@ -22,7 +22,7 @@ static unsigned int validateGrade(unsigned int grade)
 
 AForm::AForm(void): _name("No Name"), _signGrade(150), _execGrade(150) {
 	_signed = false;
-	std::cout << "Default AForm constructor" << std::endl;
+	std::cout << "Default Form constructor" << std::endl;
 }
 
 AForm::AForm(const std::string name, const unsigned int signGrade = 150, const unsigned int execGrade = 150): _name(name), _signGrade(validateGrade(signGrade)), _execGrade(validateGrade(execGrade)) {
@@ -32,20 +32,25 @@ AForm::AForm(const std::string name, const unsigned int signGrade = 150, const u
 
 AForm::AForm(const AForm& other): _name(other._name), _signGrade(other._signGrade), _execGrade(other._execGrade) {
 	_signed = false;
-	std::cout << "AForm copy constructor" << std::endl;
+	std::cout << "Form copy constructor" << std::endl;
 }
 
 AForm::~AForm(void) {
-	std::cout << "AForm destructor" << std::endl;
+	std::cout << "Form destructor" << std::endl;
 }
 
 //methods
 
-void AForm::execute(const Bureaucrat& Bureaucrat) const {
-	if (!_signed)
+bool AForm::execute(const Bureaucrat& Bureaucrat) const {
+	if (!_signed) {
 		throw SignedException();
-	else if (Bureaucrat.getGrade() > _execGrade)
+		return false;
+	}
+	else if (Bureaucrat.getGrade() > _execGrade) {
 		throw GradeTooLowException();
+		return false;
+	}
+	return true;
 }
 
 bool AForm::isSigned(void) const {
@@ -97,6 +102,6 @@ const char* AForm::SignedException::what(void) const throw() {
 
 std::ostream& operator<<(std::ostream& out, const AForm& AForm)
 {
-	out << "AForm named " << AForm.getName() << " requiring to sign a grade of " << AForm.getSignGrade() << " and a grade to execute it of " << AForm.getExecGrade();
+	out << "Form named " << AForm.getName() << " requiring to sign a grade of " << AForm.getSignGrade() << " and a grade to execute it of " << AForm.getExecGrade();
 	return out;
 }
