@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Form.hpp"
 
+//might be against the subject
 static unsigned int validateGrade(unsigned int grade)
 {
 	if (grade > 150)

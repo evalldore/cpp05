@@ -38,13 +38,18 @@ static void errors (void) {
 	henry.signForm(poo);
 }
 
-/*static void valid(void)
+static void valid(void)
 {
 	std::cout << BLU << "Valid testing" << RESET << std::endl;
-}*/
+
+	Bureaucrat	john = Bureaucrat("John", 45);
+	Form		epic = Form("poo", 45, 10);
+
+	john.signForm(epic);
+}
 
 int main(void)
 {
 	errors();
-	//valid();
+	valid();
 }
