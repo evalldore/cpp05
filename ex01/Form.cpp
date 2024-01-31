@@ -2,6 +2,7 @@
 #include "Form.hpp"
 
 //might be against the subject
+
 static unsigned int validateGrade(unsigned int grade)
 {
 	if (grade > 150)
@@ -18,6 +19,7 @@ static unsigned int validateGrade(unsigned int grade)
 }
 
 //constructors/destructors
+
 Form::Form(void): _name("No Name"), _signGrade(150), _execGrade(150) {
 	_signed = false;
 	std::cout << "Default form constructor" << std::endl;
@@ -39,19 +41,19 @@ Form::~Form(void) {
 
 //methods
 
-bool	Form::isSigned(void) const {
+bool Form::isSigned(void) const {
 	return _signed;
 }
 
-const std::string	Form::getName() const {
+const std::string Form::getName() const {
 	return _name;
 }
 
-unsigned int	Form::getSignGrade() const {
+unsigned int Form::getSignGrade() const {
 	return _signGrade;
 }
 
-unsigned int	Form::getExecGrade() const {
+unsigned int Form::getExecGrade() const {
 	return _execGrade;
 }
 
