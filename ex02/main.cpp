@@ -2,6 +2,8 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 #define RESET "\e[0m"
 
@@ -27,11 +29,14 @@ static void errors (void) {
 static void valid(void) {
 	std::cout << BLU << "Valid testing" << RESET << std::endl;
 
-	Bureaucrat henry = Bureaucrat("Henry", 137);
+	Bureaucrat henry = Bureaucrat("Henry", 120);
 	ShrubberyCreationForm Shrub = ShrubberyCreationForm("home");
+	PresidentialPardonForm Presidential = PresidentialPardonForm("me");
 
 	henry.signForm(Shrub);
 	henry.executeForm(Shrub);
+	henry.signForm(Presidential);
+	henry.executeForm(Presidential);
 }
 
 int main(void) {
