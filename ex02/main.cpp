@@ -21,22 +21,31 @@ static void errors (void) {
 
 	Bureaucrat henry = Bureaucrat("Henry", 150);
 	ShrubberyCreationForm Shrub = ShrubberyCreationForm("home");
-
-	henry.signForm(Shrub);
-	henry.executeForm(Shrub);
-}
-
-static void valid(void) {
-	std::cout << BLU << "Valid testing" << RESET << std::endl;
-
-	Bureaucrat henry = Bureaucrat("Henry", 120);
-	ShrubberyCreationForm Shrub = ShrubberyCreationForm("home");
 	PresidentialPardonForm Presidential = PresidentialPardonForm("me");
+	RobotomyRequestForm Robotomy = RobotomyRequestForm("you");
 
 	henry.signForm(Shrub);
 	henry.executeForm(Shrub);
 	henry.signForm(Presidential);
 	henry.executeForm(Presidential);
+	henry.signForm(Robotomy);
+	henry.executeForm(Robotomy);
+}
+
+static void valid(void) {
+	std::cout << BLU << "Valid testing" << RESET << std::endl;
+
+	Bureaucrat henry = Bureaucrat("Henry", 1);
+	ShrubberyCreationForm Shrub = ShrubberyCreationForm("home");
+	PresidentialPardonForm Presidential = PresidentialPardonForm("me");
+	RobotomyRequestForm Robotomy = RobotomyRequestForm("you");
+
+	henry.signForm(Shrub);
+	henry.executeForm(Shrub);
+	henry.signForm(Presidential);
+	henry.executeForm(Presidential);
+	henry.signForm(Robotomy);
+	henry.executeForm(Robotomy);
 }
 
 int main(void) {
