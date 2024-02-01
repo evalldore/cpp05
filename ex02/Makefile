@@ -1,7 +1,7 @@
 NAME			:= form
 CPPFLAGS		:= -g -Wall -Wextra -Werror
 STD				:= -std=c++98
-SRCS			:= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRCS			:= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 BINDIR			:= bin/
 OBJS			:= $(addprefix $(BINDIR), $(SRCS:.cpp=.o))
 RM				:= rm -f

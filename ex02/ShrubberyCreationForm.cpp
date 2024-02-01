@@ -8,10 +8,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& form) 
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {}
 
 bool ShrubberyCreationForm::execute(const Bureaucrat& bureaucrat) const {
-	if (!AForm::execute(bureaucrat))
-		return false;
-	//std::cout << "epic shrub on target " << getTarget() << std::endl;
-
+	if (!AForm::execute(bureaucrat)) return false;
 	std::fstream fs;
 	std::string	path = getTarget() + "_shrubbery";
 
