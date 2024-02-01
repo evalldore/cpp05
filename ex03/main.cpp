@@ -1,9 +1,7 @@
 #include <iostream>
 #include <exception>
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 #define RESET "\e[0m"
 
@@ -20,32 +18,24 @@ static void errors (void) {
 	std::cout << RED << "Errors testing" << RESET << std::endl;
 
 	Bureaucrat henry = Bureaucrat("Henry", 150);
-	ShrubberyCreationForm Shrub = ShrubberyCreationForm("home");
-	PresidentialPardonForm Presidential = PresidentialPardonForm("me");
-	RobotomyRequestForm Robotomy = RobotomyRequestForm("you");
-
-	henry.signForm(Shrub);
-	henry.executeForm(Shrub);
-	henry.signForm(Presidential);
-	henry.executeForm(Presidential);
-	henry.signForm(Robotomy);
-	henry.executeForm(Robotomy);
+	Intern inter = Intern();
+	AForm* pooForm = inter.makeForm("poo pardon", "me");
+	if (!pooForm)
+		std::cout << "no poo" << std::endl;
 }
 
 static void valid(void) {
 	std::cout << BLU << "Valid testing" << RESET << std::endl;
 
 	Bureaucrat henry = Bureaucrat("Henry", 1);
-	ShrubberyCreationForm Shrub = ShrubberyCreationForm("home");
-	PresidentialPardonForm Presidential = PresidentialPardonForm("me");
-	RobotomyRequestForm Robotomy = RobotomyRequestForm("you");
-
-	henry.signForm(Shrub);
-	henry.executeForm(Shrub);
-	henry.signForm(Presidential);
-	henry.executeForm(Presidential);
-	henry.signForm(Robotomy);
-	henry.executeForm(Robotomy);
+	Intern inter = Intern();
+	AForm* presForm = inter.makeForm("presidential pardon", "me");
+	if (presForm)
+	{
+		henry.signForm(*presForm);
+		henry.executeForm(*presForm);
+		delete presForm;
+	}
 }
 
 int main(void) {

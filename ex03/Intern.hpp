@@ -1,13 +1,21 @@
 #pragma once
 #include <string>
-#include "AForm.hpp"
+#include <map>
+#include <exception>
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+
 
 class Intern {
 	public:
+		//enums
 		enum EForm {
+			INVALID,
 			SHRUBBY,
 			PRESIDENTIAL,
-			ROBOTY
+			ROBOTOMY,
+			MAX_FORM
 		};
 		//contructors/destructors
 		Intern(void);
@@ -18,4 +26,5 @@ class Intern {
 		//operators
 		const Intern& operator=(const Intern&);
 	private:
+		std::map<const std::string, EForm> _enumMap;
 };
