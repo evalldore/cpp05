@@ -26,15 +26,31 @@ static void errors (void) {
 
 static void valid(void) {
 	std::cout << BLU << "Valid testing" << RESET << std::endl;
-
 	Bureaucrat henry = Bureaucrat("Henry", 1);
 	Intern inter = Intern();
+	std::cout << GRN << "Presidential Pardon" << RESET << std::endl;
 	AForm* presForm = inter.makeForm("presidential pardon", "me");
 	if (presForm)
 	{
 		henry.signForm(*presForm);
 		henry.executeForm(*presForm);
 		delete presForm;
+	}
+	std::cout << GRN << "Shrubbery creation" << RESET << std::endl;
+	AForm* shrub = inter.makeForm("shrubbery creation", "me");
+	if (shrub)
+	{
+		henry.signForm(*shrub);
+		henry.executeForm(*shrub);
+		delete shrub;
+	}
+	std::cout << GRN << "Robotomy request" << RESET << std::endl;
+	AForm* robot = inter.makeForm("robotomy request", "me");
+	if (robot)
+	{
+		henry.signForm(*robot);
+		henry.executeForm(*robot);
+		delete robot;
 	}
 }
 

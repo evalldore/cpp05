@@ -6,15 +6,9 @@
 static unsigned int validateGrade(unsigned int grade)
 {
 	if (grade > 150)
-	{
-		throw Form::GradeTooLowException();
 		return 150;
-	}
 	else if (grade < 1)
-	{
-		throw Form::GradeTooHighException();
 		return 1;
-	}
 	return grade;
 }
 

@@ -11,7 +11,6 @@ class Intern {
 	public:
 		//enums
 		enum EForm {
-			INVALID,
 			SHRUBBY,
 			PRESIDENTIAL,
 			ROBOTOMY,
@@ -26,5 +25,5 @@ class Intern {
 		//operators
 		const Intern& operator=(const Intern&);
 	private:
-		std::map<const std::string, EForm> _enumMap;
+		std::string _formNames[3];
 };
